@@ -6,7 +6,6 @@ setup("Create customer 01 auth", async ({ page, context }) => {
   const password = "welcome01";
   const customer01AuthFile = ".auth/customer01.json";
 
-
   const loginPage = new LoginPage(page);
   await loginPage.goto();
 

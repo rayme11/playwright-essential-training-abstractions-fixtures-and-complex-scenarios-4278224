@@ -6,6 +6,7 @@ import { defineConfig, devices } from "@playwright/test";
  */
 import dotenv from "dotenv";
 import path from "path";
+import "./lib/matchers/customMatchers";
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 /**
@@ -25,6 +26,14 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [["html"], ["list"]],
+  /* Expect configuration for number comparisons */
+  expect: {
+    toMatchSnapshot: {
+      maxDiffPixels: 100,
+    },
+    // Configure for better number comparison precision
+    timeout: 5000,
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */

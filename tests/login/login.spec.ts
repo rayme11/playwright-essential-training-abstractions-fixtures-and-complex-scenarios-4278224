@@ -28,6 +28,5 @@ test("Login with data factory object - user data", async ({ page }) => {
   await registerUser(email, password);
 
   const loginPage = new LoginPage(page);
-  await loginPage.goto()
-
+  await loginPage.goto();
 });

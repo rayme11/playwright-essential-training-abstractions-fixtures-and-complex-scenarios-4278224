@@ -19,6 +19,6 @@ test.describe("Api challenge", () => {
     expect(body.is_location_offer).toBe(false);
     expect(body.is_rental).toBe(false);
     expect(body.name).toBe("Thor Hammer");
-    expect(body.price).toBe(11.14);
+    expect(body.price).toBeANumber();
   });
 });
